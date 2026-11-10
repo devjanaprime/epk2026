@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="seo-title">Electronic Press Kit</title>
+  <meta name="description" id="seo-desc" content="Official Electronic Press Kit">
+  <meta property="og:title" id="og-title" content="Electronic Press Kit">
+  <meta property="og:description" id="og-desc" content="Official Electronic Press Kit">
+  <meta property="og:image" id="og-image" content="">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Hero Header -->
+  <header class="hero-header" id="header-section">
+    <div class="hero-bg" id="hero-bg"></div>
+    <div class="container hero-content">
+      <div id="artist-logo-container" class="logo-wrapper"></div>
+      <h1 id="artist-name" class="artist-title" hidden></h1>
+      <p id="artist-tagline" class="artist-tagline"></p>
+      <div id="genre-tags" class="genre-pills" hidden></div>
+      
+      <div class="header-actions">
+        <a id="epk-zip-btn" href="#" class="btn btn-primary" download style="display:none;">Download Full EPK (.ZIP)</a>
+        <a id="booking-cta-btn" href="#contact-section" class="btn btn-secondary">Booking Inquiries</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+
+    <!-- Hero Video Section -->
+    <section id="hero-video-section" class="card-section" style="display:none;">
+      <h2 class="section-title">Featured Video</h2>
+      <div id="video-wrapper" class="responsive-video-container"></div>
+      <p id="video-caption" class="caption-text"></p>
+    </section>
+
+    <!-- Biography Section -->
+    <section id="bio-section" class="card-section" style="display:none;">
+      <img src="assets/heroBanner.jpg" width="100%" style="border-radius: 9px;">
+      <h2 class="section-title">Biography</h2>
+      <p id="short-bio" class="lead-bio"></p>
+      <div id="full-bio-paragraphs" class="body-bio"></div>
+      
+      <div id="highlights-container" class="highlights-wrapper" style="display:none;">
+        <h3 class="subsection-title">Key Highlights</h3>
+        <ul id="highlights-list" class="highlights-list"></ul>
+      </div>
+    </section>
+
+    <!-- Audio Showcase Section -->
+    <section id="audio-section" class="card-section" style="display:none;">
+      <img src="assets/wide02.png" width="100%" style="border-radius: 9px;">
+      <h2 class="section-title">Live clips:</h2>
+      <div id="spotify-container" class="media-block"></div>
+      <div id="hosted-tracks-container" class="media-block"></div>
+      <h2 class="section-title">Studio recordings:</h2>
+      <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1579256575/size=small/bgcol=ffffff/linkcol=0687f5/track=3392262642/transparent=true/" seamless><a href="https://tinynormous.bandcamp.com/album/mellow-toning">Mellow Toning by Tinynormous</a></iframe>
+      <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1579256575/size=small/bgcol=ffffff/linkcol=0687f5/track=1889130016/transparent=true/" seamless><a href="https://tinynormous.bandcamp.com/album/mellow-toning">Mellow Toning by Tinynormous</a></iframe>
+      <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1579256575/size=small/bgcol=ffffff/linkcol=0687f5/track=392454953/transparent=true/" seamless><a href="https://tinynormous.bandcamp.com/album/mellow-toning">Mellow Toning by Tinynormous</a></iframe>
+    </section>
+
+    <!-- Press Quotes / Reviews -->
+    <section id="quotes-section" class="card-section" style="display:none;">
+      <img src="assets/wide00.png" width="100%" style="border-radius: 9px;">
+      <h2 class="section-title">Press & Press Quotes</h2>
+      <div id="quotes-grid" class="quotes-grid"></div>
+    </section>
+
+    <!-- Press Photos & Gallery -->
+    <section id="photos-section" class="card-section" style="display:none;">
+      <div class="section-header-flex">
+        <h2 class="section-title">Press Photos</h2>
+        <span class="subtext">Click image to download full resolution asset</span>
+      </div>
+      <div id="photos-grid" class="photos-grid"></div>
+    </section>
+
+    <!-- Tech Rider & Stage Plot -->
+    <section id="tech-section" class="card-section" style="display:none;">
+      <img src="assets/wide01.png" width="100%" style="border-radius: 9px;">
+      <h2 class="section-title">Stage Plot & Technical Info</h2>
+      <div class="tech-layout">
+        <div id="stage-plot-container" class="stage-plot-box"></div>
+        <div class="tech-info-box">
+          <p id="stage-plot-notes" class="body-text"></p>
+          <div id="tech-rider-download" class="mt-3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Booking -->
+    <section id="contact-section" class="card-section" style="display:none;">
+      <h2 class="section-title">Booking & Contact</h2>
+      <div id="contact-details" class="contact-card"></div>
+      <div id="socials-container" class="socials-links"></div>
+    </section>
+
+  </main>
+
+  <footer class="footer container">
+    <p>&copy; <span id="year"></span> <span id="footer-artist"></span>. All Rights Reserved.</p>
+  </footer>
+  <script src="config.js"></script>
+  <script src="epk.js"></script>
+</body>
+</html>

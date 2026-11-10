@@ -1,0 +1,522 @@
+/* ==========================================================================
+   Minnesonic Dynamic EPK Stylesheet v2.0
+   - Animated Gradient Canvas & Floating Triangles
+   - High-Impact Bold Imagery & Glassmorphism Depth
+   ========================================================================== */
+
+:root {
+  /* Color Palette */
+  --bg-dark: #0a0c10;
+  --card-bg: rgba(255, 255, 255, 0.69);
+  --card-border: rgba(255, 255, 255, 0.6);
+  --text-main: #0f172a;
+  --text-muted: #334155;
+  --primary: #2563eb;
+  --primary-glow: rgba(37, 99, 235, 0.35);
+  --accent-cyan: #06b6d4;
+  --accent-magenta: #e11d48;
+  --accent-amber: #f59e0b;
+  --radius-lg: 18px;
+  --radius-md: 10px;
+  --shadow-bold: 0 20px 35px -10px rgba(15, 23, 42, 0.15), 0 0 1px 1px rgba(255, 255, 255, 0.8) inset;
+  --shadow-hover: 0 25px 45px -12px rgba(37, 99, 235, 0.25);
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+  color: var(--text-main);
+  font-family: var(--font-stack);
+  line-height: 1.6;
+  padding-bottom: 4rem;
+  overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   1. Dynamic Animated Background (Gradients + Floating Triangles)
+   -------------------------------------------------------------------------- */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: -2;
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(6, 182, 212, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(225, 29, 72, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+    linear-gradient(135deg, #e2e8f0 0%, #9accff 50%, #ffd386 100%);
+  background-size: 180% 180%;
+  animation: ambientMesh 18s ease infinite alternate;
+}
+
+@keyframes ambientMesh {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 100%; }
+}
+
+/* Floating Triangle Canvas Layer */
+body::after {
+  content: "";
+  position: fixed;
+  top: -100px; left: -100px;
+  width: calc(100vw + 200px);
+  height: calc(100vh + 200px);
+  z-index: -1;
+  pointer-events: none;
+  background-image: 
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="327" height="327" viewBox="0 0 100 100"><polygon points="50,15 90,85 10,85" fill="none" stroke="rgba(37,99,235,0.12)" stroke-width="9"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="420" height="420" viewBox="0 0 100 100"><polygon points="50,15 90,85 10,85" fill="none" stroke="rgba(225,29,72,0.1)" stroke-width="8"/></svg>'),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="530" height="530" viewBox="0 0 100 100"><polygon points="50,15 90,85 10,85" fill="none" stroke="rgba(6,182,212,0.15)" stroke-width="7"/></svg>');
+  background-position: 10% 20%, 80% 70%, 45% 40%;
+  background-repeat: repeat;
+  animation: floatTriangles 35s linear infinite;
+}
+
+@keyframes floatTriangles {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-120px) rotate(15deg); }
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. Glassmorphism Hero Header
+   -------------------------------------------------------------------------- */
+
+.hero-header {
+  position: relative;
+  overflow: hidden;
+  background: rgba(15, 23, 42, 0.85); /* Darker backdrop so text pops over the banner */
+  color: #ffffff;
+  border-bottom: 1px solid var(--card-border);
+  padding: 5rem 0 4rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  z-index: 0;
+  opacity: 0.45; /* Adjust how bold or subtle the banner image appears */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-wrapper img {
+  max-width: 280px;
+  height: auto;
+  margin-bottom: 1.25rem;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.12));
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.logo-wrapper img:hover {
+  transform: scale(1.04) rotate(-1deg);
+}
+
+.artist-title {
+  font-size: 3.25rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.artist-tagline {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin-top: 0.5rem;
+}
+
+.genre-pills {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.pill {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.08);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.header-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Dynamic Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.85rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 20px var(--primary-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.45);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------------------------------
+   3. Glassmorphism Card Sections
+   -------------------------------------------------------------------------- */
+
+.card-section {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-bold);
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid rgba(37, 99, 235, 0.15);
+  display: inline-block;
+}
+
+.subsection-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 1.75rem 0 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. Video Embed (Hero Billing)
+   -------------------------------------------------------------------------- */
+
+/* Responsive Video Container Engine */
+.responsive-video-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background: #000000;
+}
+
+/* Aspect Ratio Modifiers */
+.responsive-video-container.ratio-16x9 {
+  padding-bottom: 56.25%; /* 16:9 */
+}
+
+.responsive-video-container.ratio-4x3 {
+  padding-bottom: 75%; /* 4:3 */
+  max-width: 800px; /* Constrain wide container slightly for 4:3 */
+}
+
+.responsive-video-container.ratio-9x16 {
+  padding-bottom: 85%; /* 9:16 vertical */
+  max-width: 420px; /* Constrain max width so vertical video isn't huge */
+}
+
+.responsive-video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+.responsive-video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 0;
+}
+
+.caption-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. Bold Image & Gallery System
+   -------------------------------------------------------------------------- */
+
+.section-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.subtext {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.photo-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+
+.photo-caption {
+  padding: 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: #ffffff;
+  color: var(--text-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   6. Stage Plot & Tech Assets (Bold Layout)
+   -------------------------------------------------------------------------- */
+
+.tech-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .tech-layout { grid-template-columns: 1fr; }
+}
+
+.stage-plot-box {
+  background: #ffffff;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 2px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.stage-plot-box:hover {
+  transform: scale(1.02);
+}
+
+.stage-plot-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   7. Audio Showcase & Press Quotes
+   -------------------------------------------------------------------------- */
+
+.media-block {
+  margin-bottom: 1.75rem;
+}
+
+.track-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--card-border);
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: border-color 0.2s ease;
+}
+
+.track-card:hover {
+  border-color: var(--primary);
+}
+
+.track-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.track-card audio {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.track-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.quotes-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.quote-card {
+  background: #ffffff;
+  border-left: 5px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.quote-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   8. Contact Details & Social Links
+   -------------------------------------------------------------------------- */
+
+.contact-card p {
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+}
+
+.contact-card a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.socials-links {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.socials-links a {
+  background: #ffffff;
+  border: 1px solid var(--card-border);
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+}
+
+.socials-links a:hover {
+  background: var(--primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   9. Footer
+   -------------------------------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 3rem;
+}
